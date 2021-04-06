@@ -1,6 +1,34 @@
 import Head from "next/head";
+import Link from "next/link";
+import { initializeStore } from "../redux/store";
 
-export default function Home() {
+const Home = () => {
+	// get redux store for dispatch action
+	const reduxStore = initializeStore();
+	const { dispatch } = reduxStore;
+
+	const handleSignin = () => {
+		sessionStorage.setItem("login", true);
+		dispatch({ type: "LOGIN", value: true });
+	};
+
+	const handleSignout = () => {
+		sessionStorage.removeItem("login", true);
+		dispatch({ type: "LOGIN", value: false });
+	};
+
+	// const getPost = async () => {
+	// 	const URL = "https://jsonplaceholder.typicode.com/posts?_limit=10";
+
+	// 	const response = await fetch(URL);
+	// 	const data = await response.json();
+	// 	return data;
+	// };
+
+	// useQuery("post", getPost, {
+	// 	staleTime: 3000,
+	// });
+
 	return (
 		<div className="">
 			<Head>
@@ -28,6 +56,36 @@ export default function Home() {
 						tailwindcss v2.0
 					</a>
 				</h2>
+
+				<div className="flex justify-center mt-5">
+					<Link href="/about">
+						<a className="border border-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-6 py-1 mr-2">
+							About
+						</a>
+					</Link>
+					<Link href="/profile">
+						<a className="border border-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-6 py-1 mr-2">
+							Profile
+						</a>
+					</Link>
+					<Link href="/contact">
+						<a className="border border-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-6 py-1 mr-2">
+							Contact
+						</a>
+					</Link>
+					<button
+						className="border border-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-6 py-1 mr-2"
+						onClick={handleSignin}
+					>
+						Signin
+					</button>
+					<button
+						className="border border-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-6 py-1 mr-2"
+						onClick={handleSignout}
+					>
+						Signout
+					</button>
+				</div>
 
 				<p className="mt-10">
 					Get started by editing <code className="">pages/index.js</code>
@@ -90,4 +148,6 @@ export default function Home() {
 			</footer>
 		</div>
 	);
-}
+};
+
+export default Home;

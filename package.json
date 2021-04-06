@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start"
   },
@@ -13,6 +13,10 @@
     "postcss": "^8.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "tailwindcss": "^2.0.2"
+    "react-query": "^3.6.0",
+    "react-redux": "^7.2.3",
+    "redux": "^4.0.5",
+    "tailwindcss": "^2.0.2",
+    "zustand": "^3.3.3"
   }
 }
