@@ -57,7 +57,7 @@ const Home = () => {
 					</a>
 				</h2>
 
-				<div className="flex justify-center mt-5">
+				<div className="flex justify-center flex-wrap mt-5">
 					<Link href="/about">
 						<a className="border border-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-6 py-1 mr-2">
 							About
