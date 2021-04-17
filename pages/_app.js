@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import useSession from "../hooks/useSession";
 import { useStore } from "../redux/store";
 import "../styles/globals.css";
-import { UnAuth } from "./unauth/UnAuth";
+import UnAuth from "./unauth/UnAuth";
 
 function MyApp({ Component, pageProps }) {
 	const queryClient = new QueryClient();
